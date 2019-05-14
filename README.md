@@ -1,5 +1,5 @@
 # sms-horizon-balance-check
-Nodejs script to download a udemy.com course (videos only), for personal offline use.
+A simple utility script to check the balance of SMS Horizon sms gateway
 
 ### Installation
 ```
