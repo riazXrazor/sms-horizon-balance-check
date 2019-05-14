@@ -1,0 +1,21 @@
+{
+  "name": "sms-horizon-balance-check",
+  "version": "1.0.0",
+  "description": "A simple utility script to check the balance of SMS Horizon sms gateway",
+  "main": "index.js",
+  "bin": {
+    "sms-horizon-balance-check": "./index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Riaz Ali Laskar",
+  "url": "https://github.com/riazXrazor/sms-horizon-balance-check/issues",
+  "email": "riazcool77@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "superagent": "^5.0.5",
+    "yargs": "^13.2.4"
+  }
+}
