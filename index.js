@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const arequest = require('superagent');
 const cheerio = require('cheerio');
 const yargs = require('yargs');

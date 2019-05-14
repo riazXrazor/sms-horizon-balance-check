@@ -1,6 +1,6 @@
 {
   "name": "sms-horizon-balance-check",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "A simple utility script to check the balance of SMS Horizon sms gateway",
   "main": "index.js",
   "bin": {
