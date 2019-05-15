@@ -1,11 +1,10 @@
 #!/usr/bin/env node
-const arequest = require('superagent');
-const cheerio = require('cheerio');
 const yargs = require('yargs');
+const fetch = require('node-fetch');
 const argv = yargs
-    .usage( "Usage: [-u \"username\"] [-p \"password\"]" )
+    .usage( "Usage: [-u \"username\"] [-k \"API KEY\"]" )
     .option( "u", { alias: "username", demand: false, describe: "Username in SMS Horizon", type: "string" } )
-    .option( "p", { alias: "password", demand: false, describe: "Password of yor account", type: "string" } )
+    .option( "k", { alias: "apiKey", demand: false, describe: "API key", type: "string" } )
     .help( "?" )
     .alias( "?", "help" )
     .epilog( "By Riaz Ali Laskar" )
@@ -13,26 +12,12 @@ const argv = yargs
 
 
 
-let check = function(username, password){
-    const agent = arequest.agent();
-    let login_url = `https://smshorizon.co.in/login-exec.php`;
-    let payload = {'login' : username, 'password': password}
-
-    agent
-        .post(login_url)
-        .type('form')
-        .send(payload)
-        .then((res)=>{
-            var $ = cheerio.load(res.text);
-            if($('.wrong').length){
-                console.log($('.wrong').text())
-            } else {
-                console.log('SMS Horizon Balance:',$('.bal').text().replace('(trans_mtnl)',''));
-            }
-        })
-        .catch((e)=>{
-            console.log(e,'Error !!')
-        })
+let check = function(username, apiKey){
+    let url = `http://smshorizon.co.in/api/balance.php?user=${username}&apikey=${apiKey}`;
+    fetch(url)
+    .then(res => res.text())
+    .then(r => console.log(r))
+    .catch(r => console.error(r))
 }
 
-check(argv.username,argv.password);
+check(argv.username,argv.apiKey);

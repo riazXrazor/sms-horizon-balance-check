@@ -8,9 +8,9 @@ npm install -g sms-horizon-balance-check
 
 ### Usage
 
-Include the username/email and password on the command line using the -u and -p parameters.
+Include the username and apiKey on the command line using the -u and -k parameters.
 
 ```
-sms-horizon-balance-check -u [YOUR USERNAME] -p [YOUR PASSWORD] 
+sms-horizon-balance-check -u [YOUR USERNAME] -k [API KEY] 
 ```
 
